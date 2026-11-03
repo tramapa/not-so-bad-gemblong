@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>not so bad — gemblong kekinian</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --strawberry:#E5ADA8;--vanilla:#F4E8D8;--caramel:#D0A77B;--chocolate:#725C3F;--lemon:#EFE8D8;--mint:#D8D7B2;
+  --bg:var(--vanilla);--surface:var(--lemon);--ink:#4a3a27;--accent:var(--chocolate);--on-accent:var(--lemon);--line:rgba(114,92,63,.28);
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2e251a;--surface:#3c3022;--ink:#EFE8D8;--accent:var(--caramel);--on-accent:#2e251a;--line:rgba(239,232,216,.25);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#2e251a;--surface:#3c3022;--ink:#EFE8D8;--accent:var(--caramel);--on-accent:#2e251a;--line:rgba(239,232,216,.25);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","DM Sans",system-ui,sans-serif;line-height:1.05;margin:0;letter-spacing:-.02em}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+header.top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+.logo{font:800 1.25rem "Bricolage Grotesque",sans-serif;text-decoration:none}
+nav a{margin-left:1.25rem;text-decoration:none;font-weight:500}
+nav a:hover{text-decoration:underline}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:2.5rem 0 4.5rem}
+.hero h1{font-size:clamp(3.5rem,11vw,8rem);font-weight:800}
+.hero p{max-width:30rem;margin:1.5rem 0 2rem;font-size:1.2rem}
+.btn{display:inline-block;background:var(--accent);color:var(--on-accent);border:0;border-radius:999px;padding:.9rem 1.7rem;font:700 1rem "DM Sans",sans-serif;text-decoration:none;cursor:pointer}
+.btn:hover{filter:brightness(1.08)}
+
+/* foto produk */
+.stack{background:var(--strawberry);border-radius:3rem;padding:1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+.stack img{width:100%;aspect-ratio:1;object-fit:cover;mix-blend-mode:multiply;border-radius:1rem}
+@media (prefers-reduced-motion:no-preference){
+  .stack img{animation:drop .7s cubic-bezier(.3,1.5,.5,1) both}
+  .stack img:nth-child(2){animation-delay:.12s}.stack img:nth-child(3){animation-delay:.24s}.stack img:nth-child(4){animation-delay:.36s}
+}
+@keyframes drop{from{translate:0 -3rem;opacity:0}}
+
+section{padding:4rem 0}
+.about{background:var(--mint);color:#4a3a27}
+.about .wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.about h2{font-size:clamp(2rem,5vw,3.2rem)}
+.about p{margin:0 0 1rem}
+
+h2.title{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:.5rem}
+.sub{margin:0 0 2.5rem;max-width:34rem}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.25rem}
+.card{box-shadow:inset 0 0 0 2px rgba(114,92,63,.2);border-radius:1.5rem;padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;color:#4a3a27}
+.card .art{aspect-ratio:1;border-radius:1rem;overflow:hidden}
+.card .art img{width:100%;height:100%;object-fit:cover;mix-blend-mode:multiply;display:block}
+.card h3{font-size:1.7rem}
+.card p{margin:0;flex:1}
+.price{font-weight:700}
+.qty{display:flex;align-items:center;gap:.75rem}
+.qty button{width:2.5rem;height:2.5rem;border-radius:50%;border:2px solid #725C3F;background:transparent;color:#4a3a27;font:700 1.25rem/1 "DM Sans",sans-serif;cursor:pointer}
+.qty button:hover{background:#725C3F;color:#EFE8D8}
+.qty output{min-width:1.5rem;text-align:center;font-weight:700}
+
+.order{background:var(--surface);border-top:2px solid var(--line)}
+.order .wrap{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.sum{border:2px solid var(--line);border-radius:1.5rem;padding:1.5rem}
+.sum ul{list-style:none;margin:0 0 1rem;padding:0}
+.sum li{display:flex;justify-content:space-between;padding:.4rem 0;border-bottom:1px dashed var(--line)}
+.total{display:flex;justify-content:space-between;font:800 1.5rem "Bricolage Grotesque",sans-serif;margin-bottom:1.25rem}
+label{display:block;font-weight:700;margin:0 0 .35rem}
+input[type=text]{width:100%;padding:.8rem 1rem;border-radius:.9rem;border:2px solid var(--line);background:var(--bg);color:var(--ink);font:inherit;margin-bottom:1rem}
+.note{font-size:.9rem;opacity:.8;margin-top:.75rem}
+
+footer{padding:2rem 0 3rem;border-top:2px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+
+@media (max-width:48rem){
+  .hero,.about .wrap,.order .wrap{grid-template-columns:1fr}
+  .menu{grid-template-columns:1fr}
+  .stack{padding:1rem}
+  nav a:first-child{display:none}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+  <a class="logo" href="im">
+    <img src="images/header.jpeg" alt="not so bad" class="logo-img">
+  </a>
+  <nav><a href="#cerita">Cerita</a><a href="#menu">Menu</a><a href="#pesan">Pesan</a></nav>
+</header>
+
+  <div class="hero">
+    <div>
+      <h1>not so bad.</h1>
+      <p>Nama kami jujur-jujuran saja. Rasanya? Justru terlalu enak. Gemblong, jajanan tradisional dari ketan, kami buat ulang supaya cocok jadi teman nongkrong zaman sekarang.</p>
+      <a class="btn" href="#menu">Pilih rasa</a>
+    </div>
+    <div class="stack">
+      <img src="images/ori.jpg" alt="Gemblong rasa Original">
+      <img src="images/choco.jpg" alt="Gemblong rasa Chocolate">
+      <img src="images/matcha.jpg" alt="Gemblong rasa Matcha">
+      <img src="images/cheese.jpeg" alt="Gemblong rasa Fill Cheese">
+    </div>
+  </div>
+</div>
+
+<section class="about" id="cerita">
+  <div class="wrap">
+    <h2>Gemblong, tapi tidak jadul.</h2>
+    <div>
+      <p>Gemblong biasanya dibuat dari ketan yang digoreng lalu dilumuri gula. Kami mempertahankan tekstur kenyal dan renyah itu, lalu menambahkan rasa yang lebih dekat dengan selera anak muda.</p>
+      <p>Dijual per potong, jadi kamu bebas mencampur rasa. Dikemas rapi, siap dibawa ke kelas, kantor, atau kumpul teman.</p>
+    </div>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="wrap">
+    <h2 class="title">Empat rasa, satu per satu.</h2>
+    <p class="sub">Pilih jumlah potong yang kamu mau. Total otomatis muncul di bagian pesan.</p>
+    <div class="menu" id="menuGrid"></div>
+  </div>
+</section>
+
+<section class="order" id="pesan">
+  <div class="wrap">
+    <div>
+      <h2 class="title">Pesanan kamu</h2>
+      <p class="sub">Isi nama dan alamat, lalu kirim pesanan lewat WhatsApp. Kami konfirmasi stok dan ongkir di sana.</p>
+      <label for="nama">Nama</label>
+      <input type="text" id="nama" autocomplete="name">
+      <label for="alamat">Alamat pengiriman</label>
+      <input type="text" id="alamat" autocomplete="street-address">
+    </div>
+    <div class="sum">
+      <ul id="list"></ul>
+      <div class="total"><span>Total</span><span id="total">Rp 0</span></div>
+      <a class="btn" id="wa" href="#pesan">Kirim lewat WhatsApp</a>
+      <p class="note" id="msg" aria-live="polite">Pilih minimal satu potong dulu.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <strong>not so bad</strong>
+    <span>Gemblong kekinian. Dibuat di Politeknik Negeri Jakarta.</span>
+  </div>
+</footer>
+
+<script>
+var WA_NUMBER = "6287808788077"; // ganti dengan nomor WhatsApp bisnis
+var items = [
+  {id:"original", img:"images/ori.jpg", name:"Original", bg:"#EFE8D8", cls:"", price:4500, desc:"Ketan goreng klasik dengan lapisan gula halus. Kenyal di dalam, renyah di luar."},
+  {id:"chocolate", img:"images/choco.jpg", name:"Chocolate", bg:"#E5ADA8", cls:"choc", price:6000, desc:"Gemblong berbalut cokelat pekat. Manisnya pas, tidak bikin enek."},
+  {id:"matcha", img:"images/matcha.jpg", name:"Matcha", bg:"#D8D7B2", cls:"matcha", price:6000, desc:"Lapisan matcha dengan pahit tipis yang menyeimbangkan manis ketannya."},
+  {id:"cheese", img:"images/cheese.jpeg", name:"Fill Cheese", bg:"#D0A77B", cls:"cheese", price:6000, desc:"Isian keju lumer di tengah. Gigit pelan-pelan, nanti kejunya keluar."}
+];
+var qty = {original:0, chocolate:0, matcha:0, cheese:0};
+var rp = function(n){ return "Rp " + n.toLocaleString("id-ID"); };
+
+var grid = document.getElementById("menuGrid");
+items.forEach(function(it){
+  var c = document.createElement("article");
+  c.className = "card"; c.style.background = it.bg;
+  c.innerHTML = '<div class="art"><img src="' + it.img + '" alt="Gemblong rasa ' + it.name + '" loading="lazy"></div>' +
+    '<h3>' + it.name + '</h3><p>' + it.desc + '</p>' +
+    '<div class="price">' + rp(it.price) + ' / pcs</div>' +
+    '<div class="qty"><button type="button" aria-label="Kurangi ' + it.name + '" data-id="' + it.id + '" data-d="-1">−</button>' +
+    '<output id="q-' + it.id + '">0</output>' +
+    '<button type="button" aria-label="Tambah ' + it.name + '" data-id="' + it.id + '" data-d="1">+</button></div>';
+  grid.appendChild(c);
+});
+grid.addEventListener("click", function(e){
+  var b = e.target.closest("button"); if(!b) return;
+  var id = b.dataset.id;
+  qty[id] = Math.max(0, qty[id] + Number(b.dataset.d));
+  document.getElementById("q-" + id).textContent = qty[id];
+  render();
+});
+["nama","alamat"].forEach(function(i){ document.getElementById(i).addEventListener("input", render); });
+
+function render(){
+  var list = document.getElementById("list"), total = 0, lines = [];
+  list.innerHTML = "";
+  items.forEach(function(it){
+    if(!qty[it.id]) return;
+    var sub = qty[it.id] * it.price; total += sub;
+    lines.push(qty[it.id] + " pcs " + it.name + " (" + rp(sub) + ")");
+    var li = document.createElement("li");
+    li.innerHTML = "<span>" + qty[it.id] + " × " + it.name + "</span><span>" + rp(sub) + "</span>";
+    list.appendChild(li);
+  });
+  document.getElementById("total").textContent = rp(total);
+  var wa = document.getElementById("wa"), msg = document.getElementById("msg");
+  if(!total){ wa.removeAttribute("target"); wa.href = "#pesan"; msg.textContent = "Pilih minimal satu potong dulu."; return; }
+  var nama = document.getElementById("nama").value.trim(), alamat = document.getElementById("alamat").value.trim();
+  var text = "Halo not so bad, saya mau pesan:\n" + lines.join("\n") + "\nTotal: " + rp(total) +
+    "\nNama: " + (nama || "-") + "\nAlamat: " + (alamat || "-");
+  wa.href = "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(text);
+  wa.target = "_blank"; wa.rel = "noopener";
+  msg.textContent = "Siap dikirim. Ongkir dihitung terpisah.";
+}
+render();
+</script>
+</body>
+</html>
