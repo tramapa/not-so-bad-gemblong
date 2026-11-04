@@ -24,7 +24,8 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
 header.top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
-.logo{font:800 1.25rem "Bricolage Grotesque",sans-serif;text-decoration:none}
+.logo{display:inline-flex;align-items:center;text-decoration:none}
+.logo-img{height:40px;width:auto;display:block;object-fit:contain} /* Styling ukuran logo */
 nav a{margin-left:1.25rem;text-decoration:none;font-weight:500}
 nav a:hover{text-decoration:underline}
 
@@ -87,11 +88,11 @@ footer .wrap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
 <body>
 <div class="wrap">
   <header class="top">
-  <a class="logo" href="im">
-    <img src="images/header.jpeg" alt="not so bad" class="logo-img">
-  </a>
-  <nav><a href="#cerita">Cerita</a><a href="#menu">Menu</a><a href="#pesan">Pesan</a></nav>
-</header>
+    <a class="logo" href="#">
+      <img src="images/header.jpeg" alt="not so bad" class="logo-img">
+    </a>
+    <nav><a href="#cerita">Cerita</a><a href="#menu">Menu</a><a href="#pesan">Pesan</a></nav>
+  </header>
 
   <div class="hero">
     <div>
